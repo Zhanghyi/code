@@ -1,5 +1,6 @@
-from flask import Flask
 from flask import render_template
+from flask import Flask
+from gevent import pywsgi
 
 app = Flask(__name__)
 
@@ -9,5 +10,5 @@ def hello_world():
     return render_template('index.html')
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=4000, debug=True)
+server = pywsgi.WSGIServer(('0.0.0.0', 4000), app)
+server.serve_forever()
