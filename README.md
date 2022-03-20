@@ -1,2 +1,5 @@
 # code
-假的bupt出入校码
+```bash
+pip install -r requirements.txt
+python main.py
+```
