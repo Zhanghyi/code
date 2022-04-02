@@ -1,149 +1,117 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<meta charset="utf-8">
-	<title>请假外出、返校权限查询通行码</title>
-	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
-	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
-
-
-<body style="margin: 0px;">
-	<div id="demo" class="collapse" style="position: fixed;top: 0;width: 100%;background-color: white;">
-		<form id="myform">
-			<div class="form-group">
-				<label for="xingming">
-					<p style="font-size: 3vh;">姓名</p>
-				</label>
-				<input type="text" value="黄翰" style="height: 8vh;font-size: 3vh;" class="form-control" id="xingming">
-			</div>
-			<div class="form-group">
-				<label for="xuehao">
-					<p style="font-size:3vh;">学号</p>
-				</label>
-				<input type="text" value="2020114525" style="height: 8vh;font-size: 3vh;" class="form-control" id="xuehao">
-			</div>
-			<div class="form-group">
-				<label for="zhaopian">
-					<p style="font-size:3vh;">照片</p>
-				</label>
-				<!-- <input type="text" style="height: 8vh;font-size: 3vh;" class="form-control" id="zhaopian"> -->
-        <input type="file" style="height: 8vh;font-size: 3vh;" onchange="previewFile()"><br>
-			</div>
-
-			<div class="form-group">
-				<label for="churuxiao">
-					<p style="font-size: 3vh;">出校还是入校</p>
-				</label>
-				<select class="form-control" id="churuxiao" style="height: 8vh;font-size: 3vh;">
-					<option>允许入校</option>
-					<option>允许出校</option>
-				</select>
-			</div>
-
-		</form>
-		<button id="queding" data-toggle="collapse" data-target="#demo" class="btn btn-primary"
-			style="height: 8vh;width: 100%;margin-top: 2vh;">
-			<p style="font-size: 3vh;">确定</p>
-		</button>
-
-	</div>
-	<div style="height: 2vh; background-color: rgba(237, 237, 237, 1);"></div>
-	<div class="zuishangmian">
-		<div style="height: 1.5vh;"></div>
-		<img src="./static/liucheng.svg" alt="" style="float: left;width: 4%;margin-left: 20px;margin-right: 10px;">
-		<p style="font-size: 1.8vh;font-family: PingFang SC;font-weight: bold;color: #333;">当前部门：信息与通信工程学院
-		</p>
-    <img src="./static/bar.png" alt="" style="position:relative;float: right;width: 2.5%;top: -2.5vh;margin-right: 10px;">
-	</div>
-	<div style="height: 2vh; background-color: rgba(237, 237, 237, 1);"></div>
-	<div class="zuishangmian">
-		<div style="height: 1.5vh;"></div>
-		<img src="./static/biaodanyemian.svg" alt="" style="float: left;width: 4%;margin-left: 20px;margin-right: 10px;">
-		<p style="font-size: 1.8vh;font-family: PingFang SC;font-weight: bold;color: #333;">
-			请假外出、返校权限查询</p>
-	</div>
-
-
-	
-
-
-
-	<div style="height: 2vh; background-color: rgba(237, 237, 237, 1);"></div>
-
-	<div class="stuInfoTitle"><span
-			style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">姓名</span>
-	</div>
-	<div class="stuInfo"><span id="xingming1"
-			style="font-size: 2.3vh; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: center; line-height: 110px; letter-spacing: 0px;">黄翰
-			
-		</span></div>
-	<div class="stuInfoTitle"><span
-			style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">照片</span>
-	</div>
-	<div class="stuInfo" style="height: 21vh;">
-	
-
-		<img id= "img111" src="./static/原始照片.png" width="27%" height="65%" style="margin-top: 2vh;">
-		
-	    <!-- <img id="zhaopian1" src="" width="40%" height="auto" > -->
-		
-		
-		</div>
-	<div class="stuInfoTitle" style="height: 2vh;"></div>
-	<div class="stuInfo" style="height: 8vh;">
-		<div style="height: 2vh;"></div><img src="./static/3916676.gif" alt="" style="width: 90%;height: 60%;margin: auto;">
-	</div>
-	<div class="stuInfoTitle"><span
-			style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">状态码</span>
-	</div>
-	<div class="stuInfo" style="height: 30vh;">
-		<div style="height: 2vh;"></div><img src="./static/qrcode.png" alt="" style="width: 40%;;margin: auto;">
-	</div>
-	<div class="stuInfoTitle"><span
-			style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">状态</span>
-	</div>
-	<div class="stuInfo"><span id="churuxiao1"
-			style="font-size: 3.5vh; font-family: 微软雅黑; font-weight: bold; font-style: normal; color: green; text-decoration: none; text-align: center; line-height: 110px; letter-spacing: 0px;">
-			允许入校
-		</span></div>
-	<div class="stuInfoTitle"><span 
-			style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">学工号</span>
-	</div>
-	<div class="stuInfo"><span id="xuehao1"
-			style="font-size: 2.3vh; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: center; line-height: 110px; letter-spacing: 0px;">2020114525
-			
-		</span></div>
-	<div class="stuInfoTitle"><span
-			style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">出入校时间</span>
-	</div>
-	<div class="stuInfo"><span id="shijian"
-			style="font-size: 2.3vh; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: center; line-height: 110px; letter-spacing: 0px;">
-			2021-08-18 09:53:57
-		</span></div>
-	
-	<div class="stuInfoTitle"><span
-			style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">学院</span>
-	</div>
-	<div class="stuInfo"><span
-			style="font-size: 2.3vh; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: center; line-height: 110px; letter-spacing: 0px;">
-			信息与通信工程学院
-		</span>
-	</div>
-	<div style="width: 100%;height: 10vh;background-color: rgba(237, 237, 237, 1);">
-		<!-- <div style="height: 1.5vh;"></div>
+ <head>
+  <meta charset="utf-8" />
+  <title>请假外出、返校权限查询通行码</title>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ </head>
+ <body style="margin: 0px;">
+  <div id="demo" class="collapse" style="position: fixed;top: 0;width: 100%;background-color: white;">
+   <form id="myform">
+    <div class="form-group">
+     <label for="xingming"> <p style="font-size: 3vh;">姓名</p> </label>
+     <input type="text" value="黄翰" style="height: 8vh;font-size: 3vh;" class="form-control" id="xingming" />
+    </div>
+    <div class="form-group">
+     <label for="xuehao"> <p style="font-size:3vh;">学号</p> </label>
+     <input type="text" value="2020114525" style="height: 8vh;font-size: 3vh;" class="form-control" id="xuehao" />
+    </div>
+    <div class="form-group">
+     <label for="zhaopian"> <p style="font-size:3vh;">照片</p> </label>
+     <!-- <input type="text" style="height: 8vh;font-size: 3vh;" class="form-control" id="zhaopian"> -->
+     <input type="file" style="height: 8vh;font-size: 3vh;" onchange="previewFile()" />
+     <br />
+    </div>
+    <div class="form-group">
+     <label for="churuxiao"> <p style="font-size: 3vh;">出校还是入校</p> </label>
+     <select class="form-control" id="churuxiao" style="height: 8vh;font-size: 3vh;"> <option>允许入校</option> <option>允许出校</option> </select>
+    </div>
+   </form>
+   <button id="queding" data-toggle="collapse" data-target="#demo" class="btn btn-primary" style="height: 8vh;width: 100%;margin-top: 2vh;"> <p style="font-size: 3vh;">确定</p> </button>
+  </div>
+  <div style="height: 2vh; background-color: rgba(237, 237, 237, 1);"></div>
+  <div class="zuishangmian">
+   <div style="height: 1.5vh;"></div>
+   <img src="./static/liucheng.svg" alt="" style="float: left;width: 4%;margin-left: 20px;margin-right: 10px;" />
+   <p style="font-size: 1.8vh;font-family: PingFang SC;font-weight: bold;color: #333;">当前部门：信息与通信工程学院 </p>
+   <img src="./static/bar.png" alt="" style="position:relative;float: right;width: 2.5%;top: -2.5vh;margin-right: 10px;" />
+  </div>
+  <div style="height: 2vh; background-color: rgba(237, 237, 237, 1);"></div>
+  <div class="zuishangmian">
+   <div style="height: 1.5vh;"></div>
+   <img src="./static/biaodanyemian.svg" alt="" style="float: left;width: 4%;margin-left: 20px;margin-right: 10px;" />
+   <p style="font-size: 1.8vh;font-family: PingFang SC;font-weight: bold;color: #333;"> 请假外出、返校权限查询</p>
+  </div>
+  <div style="height: 2vh; background-color: rgba(237, 237, 237, 1);"></div>
+  <div class="stuInfoTitle">
+   <span style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">姓名</span>
+  </div>
+  <div class="stuInfo">
+   <span id="xingming1" style="font-size: 2.3vh; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: center; line-height: 110px; letter-spacing: 0px;">黄翰 </span>
+  </div>
+  <div class="stuInfoTitle">
+   <span style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">照片</span>
+  </div>
+  <div class="stuInfo" style="height: 21vh;">
+   <img id="img111" src="./static/原始照片.png" width="27%" height="65%" style="margin-top: 2vh;" />
+   <!-- <img id="zhaopian1" src="" width="40%" height="auto" > -->
+  </div>
+  <div class="stuInfoTitle" style="height: 2vh;"></div>
+  <div class="stuInfo" style="height: 8vh;">
+   <div style="height: 2vh;"></div>
+   <img src="./static/3916676.gif" alt="" style="width: 90%;height: 60%;margin: auto;" />
+  </div>
+  <div class="stuInfoTitle">
+   <span style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">状态码</span>
+  </div>
+  <div class="stuInfo" style="height: 30vh;">
+   <div style="height: 2vh;"></div>
+   <img src="./static/qrcode.png" alt="" style="width: 40%;;margin: auto;" />
+  </div>
+  <div class="stuInfoTitle">
+   <span style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">状态</span>
+  </div>
+  <div class="stuInfo">
+   <span id="churuxiao1" style="font-size: 3.5vh; font-family: 微软雅黑; font-weight: bold; font-style: normal; color: green; text-decoration: none; text-align: center; line-height: 110px; letter-spacing: 0px;"> 允许入校 </span>
+  </div>
+  <div class="stuInfoTitle">
+   <span style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">学工号</span>
+  </div>
+  <div class="stuInfo">
+   <span id="xuehao1" style="font-size: 2.3vh; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: center; line-height: 110px; letter-spacing: 0px;">2020114525 </span>
+  </div>
+  <div class="stuInfoTitle">
+   <span style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">出入校时间</span>
+  </div>
+  <div class="stuInfo">
+   <span id="shijian" style="font-size: 2.3vh; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: center; line-height: 110px; letter-spacing: 0px;"> 2021-08-18 09:53:57 </span>
+  </div>
+  <div class="stuInfoTitle">
+   <span style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">学院</span>
+  </div>
+  <div class="stuInfo">
+   <span style="font-size: 2.3vh; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: center; line-height: 110px; letter-spacing: 0px;"> 信息与通信工程学院 </span>
+  </div>
+    <div class="stuInfoTitle">
+   <span style="color: rgb(135, 135, 135);font-size: 2.3vh;font-family: 微软雅黑;line-height: 110px;margin: 30px;">扫码校区</span>
+  </div>
+  <div class="stuInfo">
+   <span style="font-size: 2.3vh; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: center; line-height: 110px; letter-spacing: 0px;">  </span>
+  </div>
+  <div style="width: 100%;height: 10vh;background-color: rgba(237, 237, 237, 1);">
+   <!-- <div style="height: 1.5vh;"></div>
 		<div id="more">更多</div> -->
-	</div>
-	<div style="width: 100%;height: 10vh;position: fixed;bottom: 0;background-color: white;">
-		<div style="height: 1.5vh;"></div>
-		<div id="more" data-toggle="collapse" data-target="#demo">更多</div>
-	</div>
-
-
-	<script type="text/javascript">
+  </div>
+  <div style="width: 100%;height: 10vh;position: fixed;bottom: 0;background-color: white;">
+   <div style="height: 1.5vh;"></div>
+   <div id="more" data-toggle="collapse" data-target="#demo">
+    更多
+   </div>
+  </div>
+  <script type="text/javascript">
 		function previewFile() {
 		// Where you will display your image
 			var preview = document.getElementById('img111');
@@ -151,14 +119,14 @@
 			var file = document.querySelector('input[type=file]').files[0];
 		// FileReader instance
 			var reader  = new FileReader();
-	 
+
 		// When the image is loaded we will set it as source of
 		// our img tag
 			reader.onloadend = function () {
 		  	preview.src = reader.result;
 			}
-	 
-		
+
+
 			if (file) {
 		  // Load image as a base64 encoded URI
 		  	reader.readAsDataURL(file);
@@ -166,7 +134,7 @@
 		  preview.src = "";
 			}
 	  }</script>
-	<script type="text/javascript">
+  <script type="text/javascript">
 		document.getElementById("queding").addEventListener("click", onClick);
 		function onClick() {
 			console.log('xxxxxxxxxxxxxxxxxxxxxxxxx');
@@ -181,7 +149,7 @@
 			document.getElementById("churuxiao1").innerHTML=$("#churuxiao").val();
 			zhaopiandizhi=innerHTML=$("#zhaopian").val();
 			console.log(zhaopiandizhi)
-			
+
 
 
 		};
@@ -226,11 +194,7 @@
 		// };
 
 	</script>
-</body>
-
-</html>
-
-<style type="text/css">
+  <style type="text/css">
 	.stuInfoTitle {
 		background-color: rgba(47, 99, 164, 0.05);
 		height: 5.9vh;
@@ -257,6 +221,5 @@
 		line-height: 6vh;
 	}
 </style>
-
-
-
+ </body>
+</html>
